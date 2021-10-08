@@ -1,9 +1,13 @@
 ---
 title: "Preguntas iniciales para análisis de datos"
-author: "Sebastian Figueroa"
-
 output: html_document
 ---
 
 ## Preguntas  
-1. ¿Quiénes fueron los jugadores que hicieron más goles?
+
+1. ¿Quiénes fueron los jugadores que con más goles?
+2. ¿Quienes fueron los jugadores con más asistencias?
+3. ¿Existe alguna relación entre la cantidad de goles y los minutos jugados por los delanteros?
+4. ¿Quiénes fueron los jugadores con más tarjetas rojas y amarillas?
+5. ¿Cuál es el promedio de edad de los equipos?
+6. ¿Qué países aportan con más goles a la liga?
