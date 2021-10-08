@@ -1,0 +1,9 @@
+---
+title: "Preguntas iniciales para análisis de datos"
+author: "Sebastian Figueroa"
+
+output: html_document
+---
+
+## Preguntas  
+1. ¿Quiénes fueron los jugadores que hicieron más goles?
