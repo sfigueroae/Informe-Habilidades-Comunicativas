@@ -1,0 +1,18 @@
+---
+title: ''
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Goles por equipo 
+
+Durante la temporada 2020/21 en la Premier League se marcaron 986 goles. En la siguiente figura  se muestra el total de goles convertido por cada equipo durante la temporada 2020/21.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_goles-equipos.png'))
+```
+
+El equipo más goleador fue el Manchester City con 82 goles, seguido por el Manchester United con 70 goles y el Tottenham Hotspur con 66 goles. Por otro lado, el equipo con menos goles convertidos fue el Sheffield United con 19 goles.
