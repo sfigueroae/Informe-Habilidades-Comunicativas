@@ -1,0 +1,77 @@
+---
+title: "Informe"
+author: "Sebastian Figueroa"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introducción
+
+La Premier League es la liga de fútbol de primera división de Inglaterra. Comenzó a disputarse en la temporada 1992-93. En ella participan veinte equipos profesionales. Hasta el momento, los equipos que han ganado la liga son: Manchester United, Chelsea, Arsenal, Manchester City, Blackburn Rovers, Leicester City y Liverpool. Durante la temporada cada equipo juega 38 partidos, 19 de local y 19 de visita. La Premier League es considerada una de las cinco grandes ligas europeas, ocupando el primer puesto en el coeficiente UEFA ([FUENTE](https://es.uefa.com/nationalassociations/uefarankings/)).  
+  
+Siendo una de las mejores ligas del mundo, cada temporada de la Premier League es seguida por millones de expectadores en diferentes partes del planeta y los estadios la mayor parte de los partidos están repletos. Los aficionados son atraídos por la gran cantidad de figuras que disputan la liga, entre estos están: Cristiano Ronaldo, kevin de Bruyne, Romelu Lukaku, Paul Pogba, Virgil Van Dijk, entre muchos otros. Además, el campeonato cuenta con renombrados técnicos, tales como: Pep Guardiola, Jurgen Klopp o Marcelo Bielsa. Dado el gran interés que provoca la competición, se hace necesario que tanto seguidores, periodistas o participantes de la liga tengan conocimento sobre las estadísticas que se generan cada temporada, porque tienen que hacer valoraciones de equipos y jugadores.  
+  
+El siguiente informe tiene por finalidad entregar diversas valores estadísticos y análisis de la temporada 2020-21 de la Premier League. Dentro de los resultados que se darán a conocer están: máximos goleadores de la temporada, máximos asistidores de la temporada, jugadores con mayor cantidad de tarjetas rojas, euipos con mayor cantidad de goles recibidos y anotados, países que aportan más goles a la competición y relaciones entre distintas variables.  
+  
+La base de datos corresponde a estadísticas de jugadores de la Premier League temporada 2020/21. Los datos disponibles son: nombres de jugadores, clubs, nacionalidades, posiciones, edad, partidos, minutos jugados, goles, asistencias, pases intentados, porcentaje de pases completados, tarjetas rojas, tarjetas amarillas, etc. El archivo se encuentra en Kaggle y se puede obtener en este [enlace](https://www.kaggle.com/rajatrc1705/english-premier-league202021).  
+
+El informe se organiza de la siguiente manera: primero, se muestran todas aquellas estadísticas y análisis relacionadas directamnete con los jugadores. Segundo, se muestran aquellas estadísticasy análisis relacionadas a los equipos. Tercero, se mostrarán las estadísticas por país. Por último, se presenta el equipo formado por los mejores jugadores de la temporada respecto al análisis realizado en las partes anteriores.
+
+## Estadísticas por jugadores
+
+### Máximos goleadores
+
+En la siguiente figura se presentan los diez máximos goleadores de la Premier League.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_goleadores.png'))
+```
+
+El jugador que más goles convirtió fue Harry Kane con 23, seguido por Mohamed Salah con 22.
+
+### Máximos asistidores
+
+En la siguiente figura se presentan los máximos asistidores de la Premier League.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_asistidores.png'))
+```
+
+Los jugadores con más asistencias fueron Bruno Fernandes y Kevin de Bruyne con 12, seguidos por Jack Grealish y Song Heun-min con 10.
+
+### Jugadores con más tarjetas amarillas
+
+En la siguiente figura se presentan los jugadores con mayor cantidad de tarjetas amarillas en la Premier League.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_tarjetas-amarillas.png'))
+```
+
+Los jugadores con más tarjetas amarillas fueron John McGinn con 12, seguido por Conor Gallagher y Harry Maguire con 11.
+
+## Estadísticas por equipos
+
+### Goles por equipo 
+
+Durante la temporada 2020/21 en la Premier League se marcaron 986 goles. En la siguiente figura  se muestra el total de goles convertido por cada equipo.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_goles-equipos.png'))
+```
+
+El equipo más goleador fue el Manchester City con 82 goles, seguido por el Manchester United con 70 y el Tottenham Hotspur con 66. Por otro lado, el equipo con menos goles convertidos fue el Sheffield United con 19.
+
+### Edad de jugadores por equipo
+
+La edad promedio de los jugadores en la Premier League es 25.5 años. La siguiente figura representa la edad de los jugadores de los equipos.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/boxplot_edad.png'))
+```
+
