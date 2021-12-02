@@ -1,0 +1,291 @@
+---
+title: "Estadísticas de la Premier League temporada 2020-2021"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introducción
+
+La Premier League es la liga de fútbol de primera división de Inglaterra. Comenzó a disputarse en la temporada 1992-93. En ella participan veinte equipos profesionales. Hasta el momento, los equipos que han ganado la liga son: Manchester United, Chelsea, Arsenal, Manchester City, Blackburn Rovers, Leicester City y Liverpool. Durante la temporada cada equipo juega 38 partidos, 19 de local y 19 de visita. La Premier League es considerada una de las cinco grandes ligas europeas, ocupando el primer puesto en el coeficiente UEFA ("Coeficientes por países | Coeficientes UEFA", 2021).  
+  
+Siendo una de las mejores ligas del mundo, cada temporada de la Premier League es seguida por millones de expectadores en diferentes partes del planeta y los estadios la mayor parte de los partidos están repletos. Los aficionados son atraídos por la gran cantidad de figuras que disputan la liga, entre estos están: Cristiano Ronaldo, Kevin de Bruyne, Romelu Lukaku, Paul Pogba, Virgil Van Dijk, entre muchos otros. Además, el campeonato cuenta con renombrados técnicos, tales como: Pep Guardiola, Jurgen Klopp o Marcelo Bielsa. Dado el gran interés que provoca la competición, se hace necesario que tanto seguidores, periodistas o participantes de la liga tengan conocimento sobre las estadísticas que se generan cada temporada, porque tienen que hacer valoraciones de equipos y jugadores.  
+  
+El siguiente informe tiene por finalidad entregar diversos valores estadísticos y análisis de la temporada 2020-21 de la Premier League. Dentro de los resultados que se darán a conocer están: máximos goleadores de la temporada, máximos asistidores de la temporada, jugadores con mayor cantidad de tarjetas amarillas, euipos con mayor cantidad de goles y asistencias, países que aportan más goles y jugadores a la competición y la relación entre puntos y goles convertidos por los equipos.  
+  
+La base de datos corresponde a estadísticas de jugadores de la Premier League temporada 2020/21. Las variables disponibles son: nombres de jugadores, clubs, nacionalidades, posiciones, edad, partidos, minutos jugados, goles, asistencias, pases intentados, porcentaje de pases completados, tarjetas rojas, tarjetas amarillas, etc. El archivo se encuentra en Kaggle.com.  
+
+Los resultados del informe se organizan de la siguiente manera: primero, se muestran las estadísticas relacionadas con los jugadores. Segundo, se muestran las estadísticass relacionadas a los equipos. Tercero, se muestran las estadísticas por país. Por último, se presenta un análisis de regresión lineal para relacionar los puntos obtenidos y goles convertidos por los equipos.
+
+
+## Base de datos utilizada en el informe  
+
+La base de datos utilizada en el informe corresponde a un conjunto de estadísticas de todos los jugadores de la Premier League en la temporada 2020-21. El archivo se obtuvo de Kaggle, está en formato csv y se puede descargar en este [enlace](https://www.kaggle.com/rajatrc1705/english-premier-league202021).
+
+Las variables de la base de datos se describen en la siguiente tabla.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/tabla_variables.png'))
+```
+
+Con la información contenida en la base de datos se hace un análisis descriptivo de estadísticas por jugadores, equipos y nacionalidades. Además, se hace un modelo de regresión lineal entre los puntos y los goles convertidos por cada equipo.
+
+## Resultados
+
+A continuación se presentarán los principales hallazgos del análsis. En primer lugar, se van a presentar estadísticas de jugadores, en segundo lugar, estadísticas de equipos, en tercer lugar, estadísticas por país y por último, se presentará una relación entre los puntos obtenidos y los goles convertidos por cada equipo. 
+
+### Estadísticas por jugadores
+
+#### Máximos goleadores
+
+El promedio de goles por jugador en la Premier League temporada 2020-21 fue de 1.85 goles. La siguiente figura presenta los máximos goleadores de la liga.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_goleadores.png'))
+```
+
+El jugador que más goles convirtió fue Harry Kane con 23 goles, seguido por Mohamed Salah con 22.
+
+#### Máximos asistidores
+
+El promedio de asistencias por jugador en la Premier League temporada 2020-21 fue de 1.29 asistencias. A continuación se muestran los máximos asistidores de la liga.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_asistidores.png'))
+```
+
+Los jugadores con más asistencias fueron Bruno Fernandes y Kevin de Bruyne con 12, seguidos por Jack Grealish y Song Heun-min con 10.
+
+
+#### Jugadores con más implicancia en goles
+
+La siguiente figura muestra los jugadores que más implicancias tuvieron en goles, esto se representa a través de la suma de goles y asistencias.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_implicancia-en-goles.png'))
+```
+
+El jugador con mayor participación en goles convertidos fue Harry Kane con un total de 37 goles más asistencias, seguido por Bruno Fernandes con 30 participaciones.
+
+#### Jugadores con más tarjetas amarillas
+
+El promedio de tarjetas amarillas por jugador fue de 2.1. En la siguiente figura se presentan los jugadores con mayor cantidad de tarjetas amarillas.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_tarjetas-amarillas.png'))
+```
+
+Los jugadores con más tarjetas amarillas fueron John McGinn con 12, seguido por Conor Gallagher y Harry Maguire con 11.
+
+### Estadísticas por equipos
+
+#### Goles por equipo 
+
+Durante la temporada 2020/21 en la Premier League se marcaron 986 goles. En la siguiente figura  se muestra el total de goles convertido por cada equipo.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_goles-equipos.png'))
+```
+
+El equipo más goleador fue el Manchester City con 82 goles, seguido por el Manchester United con 70 y el Tottenham Hotspur con 66. Por otro lado, el equipo con menos goles convertidos fue el Sheffield United con 19.
+
+#### Asistencias por equipo 
+
+Durante la temporada 2020/21 en la Premier League se realizaron 685 asistencias. En la siguiente figura  se muestra el total de asistencias por cada equipo.  
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_asistencias-equipos.png'))
+```
+
+
+
+#### Edad de jugadores por equipo
+
+La edad promedio de los jugadores en la Premier League es 25.5 años. La siguiente figura representa la edad de los jugadores de los equipos.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/boxplot_edad.png'))
+```
+
+La figura anterior sirve para representar las edades de los jugadores de cada equipo a través de sus cuartiles. El comienzo de cada caja indica el primer cuartil, la linea dentro de la caja indica el segundo cuartil o mediana y el término de la caja el tercer cuartil. Las líneas que se extienden de cada lado de la caja llegan hasta el valor mínimo y máximo en caso de no tener outliers o valores atípicos, estos se indican por un punto al principio o el final. Por ejemplo, en el caso del Chelsea, el jugador más joven tiene 19 años, la edad del jugador del primer cuartil es 22 años, la edad que representa la mediana es 25, el tercer cuartil es 28 y tiene un valor atípico que es 38.
+
+Hay tres equipos que tenían un jugador con la menor edad de la liga (16 años), estos eran: Tottenham Hotspur, Aston Villa, Sheffield United y Manchester United. El jugador con mayor edad (38 años) estaba en el Chelsea.  
+
+#### Tarjetas amarillas por equipo  
+
+Durante la temporada 2020/21 en la Premier League se mostraron 1125 tarjetas amarillas. En la siguiente figura  se muestra el total de atarjetas amarillas por cada equipo. 
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_tarjetas-amarillas-equipos.png'))
+```
+
+Los equipos con más tarjetas amarillas fueron el Sheffield United con 73 y el Aston Villa con 71. Mientras que los equipos con menos tarjetas amarillas fueron el Manchester City con 46 y el Liverpool FC con 40.
+
+
+#### Tarjetas rojas por equipo  
+
+Durante la temporada 2020/21 en la Premier League se mostraron 48 tarjetas rojas. En la siguiente figura  se muestra el total de tarjetas rojas por cada equipo. 
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_tarjetas-rojas-equipos.png'))
+```
+
+El equipo con más tarjetas rojas fue el Brighton con 6. El Liverpool FC, el Leicester City y el Burnley no recibieron tarjetas rojas.
+
+### Estadísticas por país
+
+#### Países que más aportan jugadores
+
+Durante la temporada 2020-21 los equipos inscribieron un total de 532 jugadores. En la siguiente figura se muestran los diez países que más aportaron jugadores a la liga.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_numero-de-jugadores.png'))
+```
+
+Un 64% del total de jugadores eran Ingleses, mientras que un 36% eran de otros países.
+
+#### Ranking de goles por nacionalidad
+
+A continuación se muestran los diez países que más aportaron goles a la liga.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/columna_goles-por-pais.png'))
+```
+
+Los países que más aportaron goles fueron Inglaterra con 364, Brasil con 62, Portugal con 57 y Francia con 51.
+
+Entre los 10 países que más aportaron goles hay 7 europeos, 2 africanos y 1 sudamericano.
+
+
+### Relación entre puntos obtenidos por los equipos y la posición final en la tabla
+
+A través de un análisis de regresión lineal cuyos detalles se presentan en el anexo 1, se encuentra que los puntos obtenidos por los equipos (Anexo 2) y los goles convertidos, se pueden relacionar a través de la siguiente ecuación $Puntos =  1.06*Goles$. Esta ecuación significa que por cada gol convertido por un equipo se espera que los puntos aumenten en 1.06. La relación entre estas variables se puede ver en la siguiente figura.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here(
+'figuras/scatter-plot_regresion-final.png'))
+```
+
+En la figura se observa  que mientras más goles haga un equipo, más puntos se espera que obtenga en el campeonato. Por ejemplo, el Manchester City fue el equipo que más goles convirtió y termino primero en la tabla, mientras que el Sheffield United fue el equipo con menos goles y termino último.
+
+## Anexos
+
+### Anexo 1: Modelo de regresión lineal para analizar la relación entre  los puntos obtenidos  y los goles convertidos por cada equipo
+
+En esta parte se busca encontrar una relación entre los puntos obtenidos y los goles convertidos por cada equipo.
+
+Se da un primer vistazo al scatter plot entre los "Puntos obtenidos" contra los "Goles convertidos" para ver que relación existe entre estas variables.
+
+
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/scatter-plot_exploracion-inicial.png'))
+```
+
+Visto el gráfico, una relación lineal puede ser un buen punto de partida.
+
+Se propone el siguiente modelo $Puntos = \beta_0 + \beta_1 Goles + \epsilon$ con $\epsilon \sim N(0, \sigma^2)$ con $\sigma^2$ desconocido. Para este modelo se obtiene lo siguiente:
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/tabla_modelo-inicial.png'))
+```
+
+Se observa que para el intercepto el valor p es mayor a 0.05 y el valor p del coeficiente para los goles es menor a 0.05 . Por tanto, el intercepto no es significativo y el coeficiente para los goles sí lo es.
+
+Luego, probamos otro modelo sin intercepto dado por $Puntos =  \beta_1 Goles + \epsilon$ con $\epsilon \sim N(0, \sigma^2)$ con $\sigma^2$ desconocido. Para este modelo se obtiene lo siguiente:
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/tabla_modelo-final.png'))
+```
+
+Con este nuevo modelo, se tiene que el coeficiente para los goles sigue siendo significativo.
+
+El coeficiente de determinación es $R^2 = 0.991$, lo que indica que se explica un 99% de la variabilidad observada en los Puntos.
+
+Para comprobar el supuesto de que los errores siguen una distribucion normal con media $0$ y varianza $\sigma^2$ usamos el Test de Shapiro-Wilk. La hipotésis nula de este test es que los errores provienen de la distribución normal con un nivel de significancia de 5%. El valor p para el test resulta ser 0.7917, por tanto, no se rechaza la hipótesis nula.
+
+Para ver la heterocedasticidad de la varianza se presenta un gráfico de los residuos contra los valores ajustados.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here(
+'figuras/residuos_vs_valoresa-justados.png'))
+```
+
+No se observa ningún patrón en el gráfico, por tanto, no hay heterocedasticidad.
+
+Basandonos en lo anterior, los puntos se relacionan con los goles bajo la siguiente ecuación $Puntos =  1.06*Goles$. 
+
+El siguiente scatter plot muestra el modelo de regresión lineal final.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here(
+'figuras/scatter-plot_regresion-final.png'))
+```
+
+
+### Anexo 2: Tabla de posiciones 
+
+La tabla siguiente muestra las posiciones y los puntos obtenidos por cada equipo a final de temporada.
+
+```{r echo=FALSE}
+knitr::include_graphics(here::here('figuras/tabla_posiciones.png'))
+```
+
+El equipo que ocupa el primer puesto es el campeón, mientras que los tres últimos descienden a segunda división.
+
+## Conclusión
+
+Respecto a los resultados según las estadísticas de jugadores, el jugador con más goles convertidos durante la temporada fue Harry Kane con 23 goles, los jugadores con más asistencias fueron Bruno Fernandez y Kevin de Bruyne con 12  cada uno, mientras que el jugador que más participación tuvo en goles fue Harry Kane con 37 particpaciones.
+
+Referente a las estadísticas por equipos se puede destacar que el Manchester City fue el equipo más goleador y asistidor de la temporada, con 82 goles y 55 asistencias. La edad promedio de los jugadores fue de 25.5 años y el jugador con mayor edad (38 años) pertenecía al Chelsea. El Sheffield United fue el equipo con más tarjetas amarillas, acumuló 73 durante toda la temporada y el Liverpool fue el equipo con menor cantidad, solo tuvo  40 tarjetas amarillas. El Liverpool también se destacó como el equipo con menos tarjetas rojas, no tuvo ninguna durante la temporada al igual que el Leicester City y el Burnley.
+
+Por último, sobre las estadísticas por país es importante destacar que los jugadores de nacionalidad inglesa son los que más goles aportan a la competición, sumando un total de 364 goles, lo siguen los brasileños con 62 , los portugueses con 57 y los franceses con 51.
+
+Si vemos la incidencia individual en el desempeño del equipo campeón, se puede observar que Ikai Gundogan ocupa el puesto diez en los máximos goleadares, mientras que por el lado de las asistencias Kevin de Bruyne ocupa el primer puesto. En el ranking de implicancia en goles De Bruyne ocupa el lugar diez. En base a lo anterior, se puede decir que en el Manchester City no hubo un jugador que tuviera un gran impacto en la totalidad de los goles marcados por el equipo, a diferencia del Tottenham Hotspur donde Harry kane participó en 37 de los 66 goles convertidos por el equipo.
+
+En el desempeño de los equipos se observa que el equipo con más goles y más asistencias resultó ser el campeón del torneo.
+
+La regresión lineal desarrollada en el anexo 1, donde se busca una relación entre los puntos obtenidos y los goles convertidos por cada equipo, permite concluir que existe una fuerte correlación entre las dos variables. Se espera que entre más goles convertidos mayor sea la posición ocupada.
+
+En el análisis de regresión solo se mostró la relación de los puntos con los goles, se podría incluir más variables en el modelo para ver como se relacionan con los puntos.Además, sería interesante hacer este tipo de análisis con los resultados de temporadas anteriores, para hacer un modelo de predicción que permita mostrar qué características tienen los equipos con mayor probabilidad de obtener el título.
+
+En un principio, pretendía hacer el equipo ideal de la liga, pero me faltaron datos para lograr este objetivo. Los datos que faltaron fueron datos sobre el desempeño de arqueros y defensas.
+
+
+## Referencias
+
+Coeficientes por países | Coeficientes UEFA. UEFA.com. (2021). Recuperado el 2 Diciembre de 2021, de https://es.uefa.com/nationalassociations/uefarankings/country/#/yr/2021.  
+
+Premier League Table, Form Guide & Season Archives. Premierleague.com. (2021). Recuperado el 2 Diciembre de 2021, de https://www.premierleague.com/tables?co=1&se=363&ha=-1.
+
+WEISBERG, S. (2014). APPLIED LINEAR REGRESSION (4th ed.). JOHN WILEY. 
+
+Lo base de datos se obtuvo de Kaggle.
+
+Chaudhari, R. (2021). English Premier League(2020-21). Kaggle.com. Recuperado el 2 Diciembre de 2021, de https://www.kaggle.com/rajatrc1705/english-premier-league202021.
+
+Se utilizó el lenguaje de programación R (R Core Team, 2021)
+
+R Core Team (2021). R: A language and environment for statistical computing. R
+Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+
+Se utilizó el paquete de R tidyverse.
+  
+Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software,
+4(43), 1686, https://doi.org/10.21105/joss.01686  
+
+Se utilizó el paquete de R stringr.
+
+Hadley Wickham (2019). stringr: Simple, Consistent Wrappers for Common String
+Operations. R package version 1.4.0. https://CRAN.R-project.org/package=stringr
+
+Se utilizó el paquete de R gt.
+
+Richard Iannone, Joe Cheng and Barret Schloerke (2021). gt: Easily Create
+Presentation-Ready Display Tables. R package version 0.3.1.
+https://CRAN.R-project.org/package=gt
